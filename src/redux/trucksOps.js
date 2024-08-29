@@ -26,3 +26,15 @@ export const fetchTrucksId = createAsyncThunk(
         }
     }
 );
+
+export const fetchTruckFeatures = createAsyncThunk(
+    "trucks/fetchFeatures",
+    async ({ id }, thunkAPI) => {
+        try {
+            const response = await axios.get(`/campers/${id}/items`);
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    }
+);

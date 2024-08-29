@@ -1,4 +1,7 @@
 import { Suspense, lazy } from "react";
+import { Route, Routes } from 'react-router-dom';
+import Layout from '../Layout/Layout';
+
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
@@ -11,10 +14,14 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:id" element={<MovieDetailsPage />}></Route>
+           
           </Routes>
         </Suspense>
       </Layout>
     </div>
   )
 }
+
+
+//  <Route path="/catalog/:id" element={<MovieDetailsPage />}>
+// </Route>

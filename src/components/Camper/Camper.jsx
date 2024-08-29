@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 export default function Camper({ camper }) {
     const dispatch = useDispatch();
 
-    const { name, location, description, gallery, rating } = camper;
+    const { name, location, description, gallery, rating,  AC, bathroom, kitchen, TV, radio, refrigerator, microwave, gas, water } = camper;
 
     return (
         <div>
@@ -18,6 +18,10 @@ export default function Camper({ camper }) {
                         alt="Camper image"/>
                 </div>
             )}
+            <ul>
+                {AC && <li>Air Cond</li>}
+                {bathroom && <li>Bathroom</li>}
+            </ul>
         </div>
     );
 }

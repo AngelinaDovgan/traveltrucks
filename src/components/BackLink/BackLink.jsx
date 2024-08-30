@@ -4,8 +4,8 @@ import Btn from "../Btn/Btn";
 export default function BackLink({ to, children }) {
     return (
         <Link to={to}>
-            <Btn type="button">Go back</Btn>
-            {children}
-        </Link>
+            <Btn type="button">{children}</Btn>
+            </Link>
     );
 };
+

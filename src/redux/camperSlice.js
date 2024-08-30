@@ -29,17 +29,18 @@ const campersSlice = createSlice({
             .addCase(fetchCampersId.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = null;
-                const camper = action.payload.items;
-                const index = state.items.findIndex(item => item.id === action.payload.id);
+                const camper = action.payload;
+                const index = state.items.findIndex(item => item.id === camper.id);
                 if (index !== -1) {
                     state.items[index] = camper;
                 } else {
-                    state.items.push[index] = camper;
+                    state.items.push(camper);
                 }
             })
             .addCase(fetchCampersId.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
+
             }),
 });
 

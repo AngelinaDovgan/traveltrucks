@@ -16,7 +16,7 @@ export default function CampersDetailsPage() {
     const isLoading = useSelector(selectLoading);
     const error = useSelector(selectError);
 
-    const camper = campers.find(camper => camper.id === id);
+    const camper = campers.find(camper => camper.id == id);
     
     useEffect(() => {
     if (!camper) {
@@ -24,11 +24,10 @@ export default function CampersDetailsPage() {
     }
     }, [dispatch, id, camper]);
 
+
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
-    if (!camper) {
-    return <p>No camper data available!</p>;
-    }
+    if (!camper) return <p>No camper data available!</p>;
 
 
     const { name, price, description, gallery } = camper;
@@ -36,16 +35,20 @@ export default function CampersDetailsPage() {
         <div>
             <h2>{name}</h2>
             <p>{price}</p>
-            <BackLink to={backLinkHref}>Back</BackLink>
+            <BackLink to={backLinkHref}></BackLink>
             <main>
             <div>
             <p>{description}</p>
             </div>
             {gallery && gallery.length > 0 && (
                     <div>
-                        <img
-                            src={gallery[0].thumb}
-                            alt="Camper image" />
+                        {gallery.map((image, index) => (
+                            <img
+                                key={index}
+                                src={image.thumb}
+                                alt={`Camper image ${index + 1}`} />
+                     ))}   
+                        
                     </div>
                 )}
             </main>

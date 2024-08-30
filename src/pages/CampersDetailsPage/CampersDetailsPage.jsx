@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCampers, selectLoading, selectError } from "../../redux/camperSlice";
 import { useLocation, useParams } from "react-router";
 import BackLink from "../../components/BackLink/BackLink";
+import CampersFeatures from "../../components/CampersFeatures/CampersFeatures";
+import { useState } from "react";
+import CampersReviews from "../../components/CampersReviews/CampersReviews";
+
 
 
 
@@ -11,6 +15,8 @@ export default function CampersDetailsPage() {
     const dispatch = useDispatch();
     const locationState = useLocation();
     const { id } = useParams();
+    const [showFeatures, setShowFeatures] = useState(false);
+    const [showReviews, setShowReviews] = useState(false);
     const backLinkHref = useRef(locationState?.state ?? "/catalog");
     const campers = useSelector(selectCampers);
     const isLoading = useSelector(selectLoading);
@@ -30,7 +36,16 @@ export default function CampersDetailsPage() {
     if (!camper) return <p>No camper data available!</p>;
 
 
-    const { name, price, description, gallery } = camper;
+    const { name, price, description, gallery, reviews } = camper;
+    const toggleFeatures = () => {
+        setShowFeatures(true);
+        setShowReviews(false);
+    }
+       const toggleReviews = () => {
+        setShowFeatures(false);
+        setShowReviews(true);
+}
+   
     return (
         <div>
             <h2>{name}</h2>
@@ -48,17 +63,18 @@ export default function CampersDetailsPage() {
                                 src={image.thumb}
                                 alt={`Camper image ${index + 1}`} />
                      ))}   
-                        
                     </div>
                 )}
+
+<ul>
+<li>
+<button onClick={toggleFeatures}>Features</button>
+<button onClick={toggleReviews}>Reviews</button>                           
+</li>
+                </ul>
+                {showFeatures && <CampersFeatures camper={camper} />}
+                 {showReviews && <CampersReviews reviews={reviews}/>}
             </main>
         </div>
     );
 }
-
-
-
-
-              
-              
-  

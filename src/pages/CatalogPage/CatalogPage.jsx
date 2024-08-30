@@ -4,8 +4,8 @@ import CampersList from "../../components/CampersList/CampersList";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCampers, selectLoading, selectError } from "../../redux/camperSlice";
 
-
 export default function CatalogPage() {
+    
     const dispatch = useDispatch();
     const campers = useSelector(selectCampers);
     const isLoading = useSelector(selectLoading);

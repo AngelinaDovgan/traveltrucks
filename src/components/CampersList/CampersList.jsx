@@ -8,11 +8,12 @@ export default function CampersList({ campers }) {
             <ul>
                 {campers.map((camper) => (
                     <li key={camper.id}>
-                    <Link to={`/campers/${camper.id}`} state={location}></Link>
-                    <Camper camper={camper}/>
+                        <p>{camper.location}</p>
+                        <Camper camper={camper}/> 
                 </li>
             ))}
             </ul>
         </div>
     )
 }
+

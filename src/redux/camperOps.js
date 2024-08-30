@@ -17,7 +17,7 @@ export const fetchCampers = createAsyncThunk(
 
 export const fetchCampersId = createAsyncThunk(
     "campers/fetchId",
-    async ({id}, thunkAPI) => {
+    async (id, thunkAPI) => {
         try {
             const response = await axios.get(`/campers/${id}`);
             return response.data;
@@ -26,6 +26,8 @@ export const fetchCampersId = createAsyncThunk(
         }
     }
 );
+
+
 
 // export const fetchTruckFeatures = createAsyncThunk(
 //     "trucks/fetchFeatures",

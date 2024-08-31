@@ -1,0 +1,56 @@
+.container {
+    width: 888px;
+    border: 1px solid #DADDE1;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+
+    padding: 16px 60px 16px 60px;
+    border-radius: 100px;
+    box-shadow: none;
+    background-color: #E44848;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.test {
+    width: 100%;
+}
+.rloc {
+list-style: none;
+gap: 16px;
+}
+
+.picname {
+display: flex;
+row-gap: 15px;
+gap: 15px;
+flex-wrap: wrap;
+}
+
+.details {
+    margin-top: 50px;
+}
+
+.fet {
+    display: flex;
+    gap: 17px;
+}
+
+.feat {
+    border: 1px solid #F2F4F7;
+    padding: 12px 18px 12px 18px;
+    background-color: #F2F4F7;
+    border-radius: 100px;
+}
+
+
+
+.img {
+    border-radius: 10px;
+    object-fit: cover;
+}

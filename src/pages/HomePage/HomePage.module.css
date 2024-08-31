@@ -1,0 +1,31 @@
+.background{
+    background-image: url(../../media/Picture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    }
+
+.button {
+    margin-top: 40px;
+    margin-left: 64px;
+    padding: 16px 60px 16px 60px;
+    border-radius: 100px;
+    box-shadow: none;
+    position: absolute;
+    background-color: #E44848;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.ti {
+    color: white;
+    padding-top: 260px;
+    margin-left: 64px;
+}
+
+.titl {
+color: white;
+margin-left: 64px;
+}

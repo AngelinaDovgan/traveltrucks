@@ -7,6 +7,7 @@ import BackLink from "../../components/BackLink/BackLink";
 import CampersFeatures from "../../components/CampersFeatures/CampersFeatures";
 import { useState } from "react";
 import CampersReviews from "../../components/CampersReviews/CampersReviews";
+import CamperForm from "../../components/CamperForm/CamperForm";
 
 
 
@@ -50,7 +51,6 @@ export default function CampersDetailsPage() {
         <div>
             <h2>{name}</h2>
             <p>{price}</p>
-            <BackLink to={backLinkHref}></BackLink>
             <main>
             <div>
             <p>{description}</p>
@@ -70,7 +70,10 @@ export default function CampersDetailsPage() {
 <li>
 <button onClick={toggleFeatures}>Features</button>
 <button onClick={toggleReviews}>Reviews</button>                           
-</li>
+                    </li>
+                    <li>
+    <CamperForm/>
+                    </li>
                 </ul>
                 {showFeatures && <CampersFeatures camper={camper} />}
                  {showReviews && <CampersReviews reviews={reviews}/>}

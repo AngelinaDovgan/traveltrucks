@@ -9,6 +9,14 @@ const campersSlice = createSlice({
         error: null,
         nameFilter: ""
     },
+    reducers: {
+        addCamper: (state, action) => {
+            state.items.push(action.payload);
+        },
+        setNameFilter: (state, action) => {
+            state.nameFilter = action.payload;
+        },
+    },
     extraReducers: (builder) =>
         builder
             .addCase(fetchCampers.pending, state => {
@@ -48,5 +56,7 @@ export const selectCampers = state => state.campers.items;
 export const selectLoading = state => state.campers.loading;
 export const selectError = state => state.campers.error;
 export const selectNameFilter = state => state.campers.nameFilter;
+
+export const { addCamper, setNameFilter } = campersSlice.actions;
 
 export default campersSlice.reducer;
